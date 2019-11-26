@@ -1,11 +1,8 @@
 {
   "name": "mongo-aggregation-build-query",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Build query for mongodb using a class instance.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "mongo",
     "builder",
