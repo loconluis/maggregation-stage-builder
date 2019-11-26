@@ -1,4 +1,9 @@
-class queryBuilder {
+/**
+ * MSB is the abrev
+ * to MONGOAGREGGATION STAGE BUILDER
+ * CREATED WITH LOVE BY LUIS LOCON TWT: @LOCONLUIS
+ */
+export default class MSB {
   constructor() {
     this.PIPELINE = [];
   }
