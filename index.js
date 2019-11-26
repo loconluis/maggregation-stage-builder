@@ -254,6 +254,109 @@ class queryBuilder {
       $indexStats: {}
     })
   }
-
-  
+  /**
+   * 
+   * @param {*} document 
+   */
+  listLocalSessions(document = {}) {
+    return this.pipePush({
+      $listLocalSessions: document
+    })
+  }
+  /**
+   * 
+   * @param {*} document 
+   */
+  listSessions(document = {}) {
+    return this.pipePush({
+      $listLocalSessions: document
+    })
+  }
+  /**
+   * 
+   * @param {*} intoCollection 
+   * @param {*} on 
+   * @param {*} letVariables 
+   * @param {*} whenMatched 
+   * @param {*} whenNoMatched 
+   */
+  merge(intoCollection = '', on = '', letVariables = undefined, whenMatched= undefined, whenNoMatched = undefined) {
+    return this.pipePush({
+      $merge: {
+        into: intoCollection,
+        on,
+        let: letVariables,
+        whenMatched,
+        whenNoMatched
+      }
+    })
+  }
+  /**
+   * 
+   * @param {*} outputCollection 
+   */
+  out(outputCollection = '') {
+    return this.pipePush({
+      $out: outputCollection
+    })
+  }
+  /**
+   * 
+   */
+  planCacheStats(){
+    return this.pipePush({
+      $planCacheStats: {}
+    })
+  }
+  /**
+   * 
+   * @param {*} replacementDocument 
+   */
+  replaceRoot(replacementDocument = '') {
+    return this.pipePush({
+      $replaceRoot: {
+        newRoot: replacementDocument
+      }
+    })
+  }
+  /**
+   * 
+   * @param {*} replacementDocument 
+   */
+  replaceWith(replacementDocument = ''){
+    return this.pipePush({
+      $replaceWith: {
+        newRoot: replacementDocument
+      }
+    })
+  }
+  /**
+   * 
+   * @param {*} sizeNumber 
+   */
+  sample(sizeNumber = 1){
+    return this.pipePush({
+      $sample: {
+        size: sizeNumber
+      }
+    })
+  }
+  /**
+   * 
+   * @param {*} documentExpression 
+   */
+  set(documentExpression = {}) {
+    return this.pipePush({
+      $set: documentExpression
+    })
+  }
+  /**
+   * 
+   * @param {*} expression 
+   */
+  sortByCount(expression = undefined) {
+    return this.pipePush({
+      sortByCount: expression
+    })
+  }
 }
