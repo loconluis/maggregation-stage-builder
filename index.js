@@ -120,11 +120,11 @@ class queryBuilder {
     return this.pipePush({ $addFields: expression });
   }
   /**
-   * 
-   * @param {*} groupBy 
-   * @param {*} boundaries 
-   * @param {*} defaultKey 
-   * @param {*} outputDocument 
+   *
+   * @param {*} groupBy
+   * @param {*} boundaries
+   * @param {*} defaultKey
+   * @param {*} outputDocument
    */
   bucket(
     groupBy,
@@ -139,22 +139,22 @@ class queryBuilder {
         default: defaultKey,
         output: outputDocument
       }
-    })
+    });
   }
   /**
-   * 
-   * @param {*} groupBy 
-   * @param {*} boundaries 
-   * @param {*} defaultKey 
-   * @param {*} outputDocument 
-   * @param {*} granularity 
+   *
+   * @param {*} groupBy
+   * @param {*} boundaries
+   * @param {*} defaultKey
+   * @param {*} outputDocument
+   * @param {*} granularity
    */
   bucketAuto(
     groupBy,
     boundaries = [],
     defaultKey = undefined,
     outputDocument = {},
-    granularity= ''
+    granularity = ""
   ) {
     return this.pipePush({
       $bucket: {
@@ -164,15 +164,94 @@ class queryBuilder {
         output: outputDocument,
         granularity
       }
-    })
+    });
   }
   /**
-   * 
-   * @param {*} specifications 
+   *
+   * @param {*} specifications
    */
   facet(specifications = {}) {
     return this.pipePush({
       $facet: specifications
+    });
+  }
+  /**
+   *
+   * @param {*} near
+   * @param {*} distanceField
+   * @param {*} spherical
+   * @param {*} minDistance
+   * @param {*} queryDocument
+   * @param {*} distanceMultiplier
+   * @param {*} includeLocs
+   * @param {*} maxDistance
+   * @param {*} uniqueDocsBool
+   * @param {*} keyField
+   */
+  geoNear(
+    near = { type: "Point", coordinates: [-73.99279, 40.719296] },
+    distanceField = "",
+    spherical = false,
+    minDistance = 1,
+    queryDocument = {},
+    distanceMultiplier = 1,
+    includeLocs = undefined,
+    maxDistance = 1,
+    uniqueDocsBool = false,
+    keyField = undefined
+  ) {
+    return this.pipePush({
+      near,
+      spherical,
+      query: queryDocument,
+      distanceField,
+      minDistance,
+      maxDistance,
+      distanceMultiplier,
+      uniqueDocs: uniqueDocsBool,
+      key: keyField
+    });
+  }
+  /**
+   * 
+   * @param {*} from 
+   * @param {*} startWithExpr 
+   * @param {*} connectFromField 
+   * @param {*} connectToField 
+   * @param {*} as 
+   * @param {*} maxDepth 
+   * @param {*} depthField 
+   * @param {*} restrictSearchWithMatch 
+   */
+  graphLookup(
+    from = "",
+    startWithExpr = "",
+    connectFromField,
+    connectToField,
+    as,
+    maxDepth = undefined,
+    depthField = undefined,
+    restrictSearchWithMatch = undefined
+  ) {
+    return this.pipePush({
+      $graphLookup: {
+        from,
+        startWith: startWithExpr,
+        connectFromField,
+        connectToField,
+        as,
+        maxDistance,
+        depthField,
+        restrictSearchWithMatch
+      }
+    });
+  }
+  /**
+   * 
+   */
+  indexStats() {
+    return this.pipePush({
+      $indexStats: {}
     })
   }
 
