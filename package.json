@@ -1,0 +1,25 @@
+{
+  "name": "mongo-aggregation-build-query",
+  "version": "0.1.0",
+  "description": "Build query for mongodb using a class instance.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mongo",
+    "builder",
+    "query",
+    "javascript"
+  ],
+  "author": "Luis Locon <https://luislocon.dev>",
+  "homepage": "https://github.com/loconluis/maggregation-stage-builder#readme",
+  "contributors": [
+    {
+      "name": "Rodrigo Chaclan",
+      "email": "chaclan.rodrigo@gmail.com",
+      "url": "https://www.linkedin.com/in/rodrigo-vanegas-chaclan-707aa4142/"
+    }
+  ],
+  "license": "MIT"
+}
