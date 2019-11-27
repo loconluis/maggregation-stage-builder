@@ -1,5 +1,5 @@
 {
-  "name": "mongo-aggregation-build-query",
+  "name": "maggregation-stage-builder",
   "version": "1.0.0",
   "description": "Build query for mongodb using a class instance.",
   "main": "index.js",

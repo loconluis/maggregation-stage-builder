@@ -3,7 +3,7 @@
  * to MONGOAGREGGATION STAGE BUILDER
  * CREATED WITH LOVE BY LUIS LOCON TWT: @LOCONLUIS
  */
-export default class MSB {
+class MSB {
   constructor() {
     this.PIPELINE = [];
   }
@@ -365,3 +365,6 @@ export default class MSB {
     })
   }
 }
+
+
+module.exports = MSB;
