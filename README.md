@@ -1,7 +1,6 @@
 # Maggregation Stage Builder
 
 What this class seeks is to simplify the way to create the queries in Mongo, chaining each method, and only receiving parameters, to avoid having a super long pipeline string.
-----
 
 # How to usage
  `$ npm install maggregation-stage-builder`
